@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Flávia 💗</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+        @keyframes beat {
+            0%, 100% {
+                transform: rotate(-45deg) scale(1);
+            }
+            50% {
+                transform: rotate(-45deg) scale(1.1);
+            }
+        }
+
+
+        #heart-container {
+            transition: opacity 0.5s ease-out;
+        }
+
+
+        #heart-button {
+            width: 150px;
+            height: 150px;
+            background-color: #e91e63;
+            position: relative;
+            transform: rotate(-45deg);
+            cursor: pointer;
+            animation: beat 1.5s infinite;
+        }
+
+
+        #heart-button::before,
+        #heart-button::after {
+            content: "";
+            width: 150px;
+            height: 150px;
+            background-color: #e91e63;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #heart-button::before {
+            top: -75px;
+            left: 0;
+        }
+
+        #heart-button::after {
+            left: 75px;
+            top: 0;
+        }
+
+   
+        #heart-text {
+            position: absolute;
+            top: 40%;
+            left: 60%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        #photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: #444;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            z-index: 100;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in, visibility 0s 1s;
+        }
+
+        #photo-container.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease-in;
+        }
+
+        #photo-container img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        #photo-container p {
+            font-size: 1.5em;
+            color: #c2185b;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="heart-container">
+        <div id="heart-button">
+            <div id="heart-text">Flávia</div>
+        </div>
+    </div>
+    
+    <div id="photo-container">
+        <img src="https://i.postimg.cc/PqtP6xJc/flavia-fundo-otimizado.jpg" alt="Foto da Flávia" />
+        <p>"Para mim, basta que tu existas em algum lugar e não perderei a vontade de viver.”<br><br>— Ivan Karamázov</p>
+Feliz Dia dos Namorados!</p>
+    </div>
+
+    <script>
+
+        const heartContainer = document.getElementById('heart-container');
+        const photoContainer = document.getElementById('photo-container');
+
+
+        heartContainer.addEventListener('click', () => {
+
+            heartContainer.style.opacity = '0';
+
+            photoContainer.classList.add('show');
+        });
+    </script>
+
+</body>
+</html>
